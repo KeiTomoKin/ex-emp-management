@@ -1,4 +1,4 @@
-package jp.co.sample.service;
+package jp.co.sample.form;
 
 /**
  * 管理者登録時に使用するフォーム.
@@ -13,7 +13,7 @@ public class InsertAdministratorForm {
 	private String mailAddress;
 	/** パスワード */
 	private String password;
-	
+
 	@Override
 	public String toString() {
 		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
