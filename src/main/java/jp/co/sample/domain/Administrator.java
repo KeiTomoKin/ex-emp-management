@@ -1,5 +1,9 @@
 package jp.co.sample.domain;
 
+/**
+ * @author user
+ *
+ */
 public class Administrator {
 
 	/** ID */
@@ -46,11 +50,11 @@ public class Administrator {
 		this.name = name;
 	}
 
-	public String getMailaddress() {
+	public String getMailAddress() {
 		return mailAddress;
 	}
 
-	public void setMailaddress(String mailaddress) {
+	public void setMailAddress(String mailaddress) {
 		this.mailAddress = mailaddress;
 	}
 

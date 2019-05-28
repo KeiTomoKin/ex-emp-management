@@ -2,6 +2,10 @@ package jp.co.sample.domain;
 
 import java.time.LocalDate;
 
+/**
+ * @author user
+ *
+ */
 public class Employee {
 	/** ID */
 	private Integer id;
