@@ -9,6 +9,7 @@ import jp.co.sample.repository.AdministratorRepository;
 
 /**
  * 管理者関連機能の業務処理を行うサービス.
+ * 
  * @author keita.tomooka
  *
  */
@@ -17,9 +18,10 @@ import jp.co.sample.repository.AdministratorRepository;
 public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
-	
+
 	/**
 	 * 管理情報を挿入する.
+	 * 
 	 * @param administrator
 	 */
 	public void insert(Administrator administrator) {

@@ -14,6 +14,7 @@ import jp.co.sample.domain.Employee;
 
 /**
  * employeesテーブルを操作するリポジトリ.
+ * 
  * @author keita.tomooka
  *
  */
@@ -39,8 +40,7 @@ public class EmployeeRepository {
 	private NamedParameterJdbcTemplate template;
 
 	/**
-	 * 従業員一覧情報を入社日順で取得する.
-	 * 従業員が存在しない場合はサイズ０件の従業員一覧を返す。
+	 * 従業員一覧情報を入社日順で取得する. 従業員が存在しない場合はサイズ０件の従業員一覧を返す。
 	 * 
 	 * @return 従業員一覧情報
 	 */
@@ -51,8 +51,8 @@ public class EmployeeRepository {
 	}
 
 	/**
-	 * 主キーから従業員情報を取得する.
-	 * 従業員が存在しない場合はSpringが自動的に例外を発生します。
+	 * 主キーから従業員情報を取得する. 従業員が存在しない場合はSpringが自動的に例外を発生します。
+	 * 
 	 * @param id
 	 * @return 従業員情報
 	 */
@@ -62,15 +62,15 @@ public class EmployeeRepository {
 		Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
 		return employee;
 	}
-	
+
 	/**
-	 * 従業員情報を変更する.
-	 * 従業員情報の扶養人数だけ更新できる。
+	 * 従業員情報を変更する. 従業員情報の扶養人数だけ更新できる。
+	 * 
 	 * @param employee 従業員情報
 	 */
 	public void update(Employee employee) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
-		String updateSql ="UPDATE employees SET dependents_count=:dependentsCopunt WHERE id=:id";
+		String updateSql = "UPDATE employees SET dependents_count=:dependentsCopunt WHERE id=:id";
 		template.update(updateSql, param);
 	}
 }
