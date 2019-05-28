@@ -1,4 +1,4 @@
-package jp.co.sample.controller;
+package jp.co.sample.form;
 
 /**
  * ログイン時に使用するフォーム.

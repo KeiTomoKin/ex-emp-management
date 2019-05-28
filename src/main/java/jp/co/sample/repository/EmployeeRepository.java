@@ -40,12 +40,13 @@ public class EmployeeRepository {
 	private NamedParameterJdbcTemplate template;
 
 	/**
-	 * 従業員一覧情報を入社日順で取得する. 従業員が存在しない場合はサイズ０件の従業員一覧を返す。
+	 * 従業員一覧情報を入社日順で取得する. 
+	 * 従業員が存在しない場合はサイズ０件の従業員一覧を返す。
 	 * 
 	 * @return 従業員一覧情報
 	 */
 	public List<Employee> findAll() {
-		String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristtics,dependents_count FROM employees ORDER BY hire_date";
+		String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employees ORDER BY hire_date DESC";
 		List<Employee> employeeList = template.query(sql, EMPLOYEE_ROW_MAPPER);
 		return employeeList;
 	}
@@ -57,14 +58,15 @@ public class EmployeeRepository {
 	 * @return 従業員情報
 	 */
 	public Employee load(Integer id) {
-		String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristtics,dependents_count FROM employees WHERE id=:id";
+		String sql = "SELECT id,name,image,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count FROM employees WHERE id=:id";
 		SqlParameterSource param = new MapSqlParameterSource().addValue("id", id);
 		Employee employee = template.queryForObject(sql, param, EMPLOYEE_ROW_MAPPER);
 		return employee;
 	}
 
 	/**
-	 * 従業員情報を変更する. 従業員情報の扶養人数だけ更新できる。
+	 * 従業員情報を変更する. 
+	 * 従業員情報の扶養人数だけ更新できる。
 	 * 
 	 * @param employee 従業員情報
 	 */

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
+import jp.co.sample.form.LoginForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
@@ -86,16 +87,17 @@ public class AdministratorController {
 
 	/**
 	 * 管理者の入力情報を元にログインする.
+	 * ログインに失敗した場合はエラーメッセージを表示する
 	 * 
 	 * @param form  管理者の入力情報
 	 * @param model リクエストスコープ
-	 * @return 従業員一覧画面
+	 * @return 従業員一覧画面（あるいはログイン画面）
 	 */
 	@RequestMapping("/login")
 	public String login(LoginForm form, Model model) {
 		Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
 		if (administrator == null) {
-			model.addAttribute("message","メールアドレスまたはパスワードが不正です。");
+			model.addAttribute("message", "メールアドレスまたはパスワードが不正です。");
 			return "administrator/login";
 		} else {
 			session.setAttribute("administrationName", administrator.getName());
