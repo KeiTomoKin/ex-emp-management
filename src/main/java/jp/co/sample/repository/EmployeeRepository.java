@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Employee;
 
 /**
+ * employeesテーブルを操作するリポジトリ.
  * @author keita.tomooka
  *
  */

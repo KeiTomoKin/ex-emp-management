@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Administrator;
 
 /**
+ * administeratorsテーブルを操作するリポジトリ.
  * @author keita.tomooka
  *
  */
