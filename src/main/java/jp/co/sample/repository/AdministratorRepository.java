@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import jp.co.sample.domain.Administrator;
 
 /**
- * @author user
+ * @author keita.tomooka
  *
  */
 @Repository
@@ -29,7 +29,7 @@ public class AdministratorRepository {
 
 	
 	/**
-	 *  管理者情報を挿入する。 
+	 *  管理者情報を挿入する.
 	 * @param administrator 管理者情報
 	 */
 	public void insert(Administrator administrator) {
@@ -44,7 +44,7 @@ public class AdministratorRepository {
 	}
 	
 	/**
-	 * メールアドレスをパスワードから管理者情報を取得する。<br>
+	 * メールアドレスをパスワードから管理者情報を取得する.
 	 * もし、存在しない場合はnullを返す。
 	 * @param mailAddress メールアドレス
 	 * @param password パスワード

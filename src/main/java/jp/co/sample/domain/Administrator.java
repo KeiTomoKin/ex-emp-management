@@ -1,7 +1,9 @@
 package jp.co.sample.domain;
 
 /**
- * @author user
+ * 従業員情報を表すドメイン.
+ * 
+ * @author keita.tomooka
  *
  */
 public class Administrator {
@@ -16,7 +18,6 @@ public class Administrator {
 	private String password;
 
 	public Administrator() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public Administrator(Integer id, String name, String mailAddress, String password) {
