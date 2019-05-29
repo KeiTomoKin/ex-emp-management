@@ -2,7 +2,6 @@ package jp.co.sample.controller;
 
 import java.util.List;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,7 +75,7 @@ public class EmployeeController {
 	@RequestMapping("/update")
 	public String update(UpdateEmployeeForm form) {
 		Employee employee = employeeService.showDetail(Integer.valueOf(form.getId()));
-		employee.setDependentsCount(form.getDependentsCount());
+		employee.setDependentsCount(Integer.valueOf(form.getDependentsCount()));
 		employeeService.update(employee);
 		return "redirect:/employee/showList";
 	}
