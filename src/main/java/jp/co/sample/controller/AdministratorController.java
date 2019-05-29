@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.form.LoginForm;
+import jp.co.sample.form.UpdateEmployeeForm;
 import jp.co.sample.service.AdministratorService;
 
 /**
@@ -86,8 +87,7 @@ public class AdministratorController {
 	}
 
 	/**
-	 * 管理者の入力情報を元にログインする.
-	 * ログインに失敗した場合はエラーメッセージを表示する
+	 * 管理者の入力情報を元にログインする. ログインに失敗した場合はエラーメッセージを表示する
 	 * 
 	 * @param form  管理者の入力情報
 	 * @param model リクエストスコープ
@@ -103,5 +103,16 @@ public class AdministratorController {
 			session.setAttribute("administrationName", administrator.getName());
 			return "forward:/employee/showList";
 		}
+	}
+
+	/**
+	 * ログアウトをする.
+	 * 
+	 * @return ログイン画面
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect:/";
 	}
 }
