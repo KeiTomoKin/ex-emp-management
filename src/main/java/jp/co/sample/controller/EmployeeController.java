@@ -2,6 +2,7 @@ package jp.co.sample.controller;
 
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +16,10 @@ import jp.co.sample.service.EmployeeService;
 /**
  * 従業員関連機能の処理の制御を行うコントローラ
  * 
+ * @author keita.tomooka
+ *
+ */
+/**
  * @author keita.tomooka
  *
  */
@@ -34,7 +39,7 @@ public class EmployeeController {
 	public String showList(Model model) {
 		List<Employee> employeeList = employeeService.showList();
 		model.addAttribute("employeeList", employeeList);
-		return "employee/list.html";
+		return "employee/list";
 	}
 
 	/**
@@ -59,6 +64,21 @@ public class EmployeeController {
 		Employee employee = employeeService.showDetail(Integer.valueOf(id));
 		model.addAttribute("employee", employee);
 		return "employee/detail";
+	}
+
+	/**
+	 * 従業員情報を更新する.
+	 * 
+	 * @param form
+	 * @param model
+	 * @return 従業員一覧画面
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		Employee employee = employeeService.showDetail(Integer.valueOf(form.getId()));
+		employee.setDependentsCount(form.getDependentsCount());
+		employeeService.update(employee);
+		return "redirect:/employee/showList";
 	}
 
 }
